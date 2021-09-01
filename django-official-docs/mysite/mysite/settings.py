@@ -29,14 +29,17 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+# *** notes by crz at 2021-09-01 07:58 *** :
+# Django apps are “pluggable”: You can use an app in multiple projects,
+# and you can distribute apps, because they don’t have to be tied to a given Django installation.
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.admin',           # The admin site.
+    'django.contrib.auth',            # An authentication system.
+    'django.contrib.contenttypes',    # A framework of content types.
+    'django.contrib.sessions',        # A session framework.
+    'django.contrib.messages',        # A messaging framework.
+    'django.contrib.staticfiles',     # A framework for managing static files.
+    'polls.apps.PollsConfig',
 ]
 
 MIDDLEWARE = [
@@ -72,7 +75,15 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
+# *** notes by crz at 2021-09-01 08:05 *** : 
+# By running makemigrations, 
+# you’re telling Django that you’ve made some changes to your models
+# (in this case, you’ve made new ones) 
+# and that you’d like the changes to be stored as a migration.
+# *** notes by crz at 2021-09-01 08:07 *** :
+# The sqlmigrate command takes migration names and returns their SQL.
+# *** notes by crz at 2021-09-01 08:14 *** :
+# python manage.py check
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -103,9 +114,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-Hans'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 

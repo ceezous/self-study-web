@@ -8,7 +8,7 @@ import datetime
 # Question.objects.all() .filter(id=1) .filter(question_text__startswith='what') .get(pub_date__year=current_year) .get(pk=1)
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
+    pub_date = models.DateTimeField(verbose_name='date published', auto_now_add=True)
 
     # *** notes by crz at 2021-09-01 08:23 *** : shows when calling Question.objects.all()
     # It’s important to add __str__() methods to your models,

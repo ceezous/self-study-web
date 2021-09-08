@@ -1,7 +1,6 @@
 {% if latest_question_list %}
     <ul>
         {% for question in latest_question_list %}
-            <!-- "{% url 'detail' question.id %}" 用于逆向路由，找的是urlpatterns中的name属性pyt-->
             <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
         {% endfor %}
     </ul>
